@@ -331,7 +331,7 @@
 
 
 <!-- Video Comparison -->
-<!-- <section class="section">
+<section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered ">
       <div class="column is-full-width">
@@ -339,7 +339,7 @@
         <div class="content has-text-justified">
           <center>
             <!-- Here, the switchVideo's argument should be the name of the video -->
-            <!-- <button class="btn" id="level1_button" onclick="switchVideo('level1')">Level1</button>
+            <button class="btn" id="level1_button" onclick="switchVideo('level1')">Level1</button> -->
             <button class="btn" id="level2_button" onclick="switchVideo('level2')">Level2</button>
             <button class="btn" id="level3_button" onclick="switchVideo('level3')">Level3</button>
             <br>
@@ -365,45 +365,9 @@
       </div>
     </div>
   </div>
-</section> -->
-
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered ">
-      <div class="column is-full-width">
-        <h2 class="title is-3 has-text-centered">Video Comparison</h2>
-        <div class="content has-text-justified">
-          <center>
-            <!-- Here, the switchVideo's argument should be the name of the video -->
-            <button class="btn" id="rgb_button" onclick="switchVideo('rgb')">RGB</button>
-            <button class="btn" id="depth_button" onclick="switchVideo('depth')">Depth</button>
-            <button class="btn" id="normal_button" onclick="switchVideo('normal')">Normal</button>
-            <button class="btn" id="touch_button" onclick="switchVideo('touch')">Touch Integration</button>
-            <br>
-            <br>
-            <video muted autoplay loop width="700px" height="400px" controls controls id="videoPlayer">
-              <source src="./static/videos/rgb.mp4" type="video/mp4">
-            </video>
-          </center>
-            <script>
-                document.getElementById('rgb_button').classList.add('active');
-                function switchVideo(videoSrc) {
-                    document.getElementById('rgb_button').classList.remove('active');
-                    document.getElementById('depth_button').classList.remove('active');
-                    document.getElementById('normal_button').classList.remove('active');
-                    document.getElementById('touch_button').classList.remove('active');
-
-                    document.getElementById(videoSrc+'_button').classList.add('active');
-                    const videoPlayer = document.getElementById('videoPlayer');
-                    videoPlayer.src = './static/videos/' + videoSrc + '.mp4';
-                    videoPlayer.play();  // Play automatically when the video is switched
-                }
-            </script>
-        </div>
-      </div>
-    </div>
-  </div>
 </section>
+
+
 
 <hr>
 
