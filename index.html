@@ -333,39 +333,173 @@
 <!-- Video Comparison -->
 <section class="section">
   <div class="container is-max-desktop">
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3 has-text-centered">Video Results</h2>
+        <div class="content has-text-justified">
+          <center>
+            <!-- Level Buttons with Sub-buttons -->
+            <div class="level-buttons">
+              <!-- Level 1 -->
+              <div class="level-group">
+                <button class="btn level-btn" id="level1_button" onclick="switchLevel('level1')">Level 1</button>
+                <div class="sub-buttons" id="level1_sub_buttons" style="display: none;">
+                  <button class="btn sub-btn" id="level1_interpolated_button" onclick="switchVideo('level1', 'interpolated')">Interpolated</button>
+                  <button class="btn sub-btn" id="level1_extrapolated_button" onclick="switchVideo('level1', 'extrapolated')">Extrapolated</button>
+                </div>
+              </div>
+              <!-- Level 2 -->
+              <div class="level-group">
+                <button class="btn level-btn" id="level2_button" onclick="switchLevel('level2')">Level 2</button>
+                <div class="sub-buttons" id="level2_sub_buttons" style="display: none;">
+                  <button class="btn sub-btn" id="level2_interpolated_button" onclick="switchVideo('level2', 'interpolated')">Interpolated</button>
+                  <button class="btn sub-btn" id="level2_extrapolated_button" onclick="switchVideo('level2', 'extrapolated')">Extrapolated</button>
+                </div>
+              </div>
+              <!-- Level 3 -->
+              <div class="level-group">
+                <button class="btn level-btn" id="level3_button" onclick="switchLevel('level3')">Level 3</button>
+                <div class="sub-buttons" id="level3_sub_buttons" style="display: none;">
+                  <button class="btn sub-btn" id="level3_interpolated_button" onclick="switchVideo('level3', 'interpolated')">Interpolated</button>
+                  <button class="btn sub-btn" id="level3_extrapolated_button" onclick="switchVideo('level3', 'extrapolated')">Extrapolated</button>
+                </div>
+              </div>
+            </div>
+            <br><br>
+            <!-- Video Player -->
+            <video muted autoplay loop style="height: 700px; width: auto;" controls id="videoPlayer">
+              <source src="./static/videos/level1_interpolated.mp4" type="video/mp4">
+            </video>
+          </center>
+          <!-- JavaScript -->
+          <script>
+            // Initialize: Show Level 1 sub-buttons and set active states
+            document.getElementById('level1_sub_buttons').style.display = 'block';
+            document.getElementById('level1_button').classList.add('active');
+            document.getElementById('level1_interpolated_button').classList.add('active');
+            function switchLevel(level) {
+              // Hide all sub-buttons
+              document.querySelectorAll('.sub-buttons').forEach(function(subButtons) {
+                subButtons.style.display = 'none';
+              });
+              // Remove 'active' class from all level buttons
+              document.querySelectorAll('.level-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+              });
+              // Add 'active' class to the selected level button
+              document.getElementById(level + '_button').classList.add('active');
+              // Show sub-buttons for the selected level
+              document.getElementById(level + '_sub_buttons').style.display = 'block';
+              // Optionally, reset sub-button active states
+              document.querySelectorAll('.sub-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+              });
+              // Set default sub-button (e.g., 'interpolated') as active
+              var defaultSubBtn = document.getElementById(level + '_interpolated_button');
+              defaultSubBtn.classList.add('active');
+              // Switch to the default video
+              switchVideo(level, 'interpolated');
+            }
+            function switchVideo(level, type) {
+              // Remove 'active' class from all sub-buttons
+              document.querySelectorAll('.sub-btn').forEach(function(btn) {
+                btn.classList.remove('active');
+              });
+              // Add 'active' class to the selected sub-button
+              document.getElementById(level + '_' + type + '_button').classList.add('active');
+              // Update video source
+              const videoPlayer = document.getElementById('videoPlayer');
+              videoPlayer.src = './static/videos/' + level + '_' + type + '.mp4';
+              videoPlayer.play();
+            }
+          </script>
+          <!-- Add CSS for button styles if necessary -->
+          <style>
+            .btn.active {
+              background-color: #3273dc;
+              color: white;
+            }
+            .level-buttons {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
+            .level-group {
+              margin: 0 10px;
+              text-align: center;
+            }
+            .sub-buttons {
+              margin-top: 5px;
+            }
+            .sub-btn {
+              margin-top: 5px;
+              width: 100px;
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<!-- </section>
+<section class="section">
+  <div class="container is-max-desktop">
     <div class="columns is-centered ">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">Video Results</h2>
         <div class="content has-text-justified">
           <center>
-            <!-- Here, the switchVideo's argument should be the name of the video -->
-            <button class="btn" id="level1_button" onclick="switchVideo('level1')">Level1</button>
+            <!-- Main Level Buttons -->
+            <!-- <button class="btn" id="level1_button" onclick="switchVideo('level1')">Level1</button>
             <button class="btn" id="level2_button" onclick="switchVideo('level2')">Level2</button>
             <button class="btn" id="level3_button" onclick="switchVideo('level3')">Level3</button>
             <br>
+            <br>
+            <!-- Sub Buttons -->
+            <!-- <div id="subButtons" style="display: none;">
+              <button class="btn" id="train_button" onclick="switchSubVideo('train')">Train</button>
+              <button class="btn" id="test_button" onclick="switchSubVideo('test')">Test</button>
+            </div>
             <br>
             <video muted autoplay loop style="height: 700px; width: auto;" controls id="videoPlayer">
               <source src="./static/videos/level1.mp4" type="video/mp4">
             </video>
           </center>
-            <script>
-                document.getElementById('level1_button').classList.add('active');
-                function switchVideo(videoSrc) {
-                    document.getElementById('level1_button').classList.remove('active');
-                    document.getElementById('level2_button').classList.remove('active');
-                    document.getElementById('level3_button').classList.remove('active');
+          <script>
+            let currentLevel = 'level1'; // Track the current main level
 
-                    document.getElementById(videoSrc+'_button').classList.add('active');
-                    const videoPlayer = document.getElementById('videoPlayer');
-                    videoPlayer.src = './static/videos/' + videoSrc + '.mp4';
-                    videoPlayer.play();  // Play automatically when the video is switched
-                }
-            </script>
+            document.getElementById('level1_button').classList.add('active');
+
+            function switchVideo(videoSrc) {
+                // Deselect all level buttons
+                document.getElementById('level1_button').classList.remove('active');
+                document.getElementById('level2_button').classList.remove('active');
+                document.getElementById('level3_button').classList.remove('active');
+
+                // Activate the selected level button
+                document.getElementById(videoSrc + '_button').classList.add('active');
+
+                // Update current level
+                currentLevel = videoSrc;
+
+                // Show sub-buttons
+                document.getElementById('subButtons').style.display = 'block';
+
+                // Default to 'train' video when switching level
+                switchSubVideo('train');
+            }
+
+            function switchSubVideo(subType) {
+                const videoPlayer = document.getElementById('videoPlayer');
+                videoPlayer.src = `./static/videos/${currentLevel}_${subType}.mp4`; // Combine level and sub-type
+                videoPlayer.play(); // Play automatically when the video is switched
+            }
+          </script>
         </div>
       </div>
     </div>
   </div>
-</section>
+</section> -->
 
 
 
