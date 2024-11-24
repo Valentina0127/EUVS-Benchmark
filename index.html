@@ -329,6 +329,19 @@
   </div>
 </section>
 
+<section class="hero summary">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width summary no-margin">
+        
+        <h2 class="title is-3">Abstract</h2>
+        <p style="font-size: 18px;">
+          Urban view synthesis has traditionally concentrated on generating novel views by interpolating between known poses. In this work, we shift focus to the challenge of extrapolated pose synthesis, leveraging a real-world dataset that enables robust evaluation of models under extreme viewpoint transformations. Our benchmark provides insights into how state-of-the-art methods perform in such scenarios, laying the groundwork for future advancements in novel view synthesis and urban scene reconstruction.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- Video Comparison -->
 <section class="section">
@@ -395,10 +408,10 @@
                 btn.classList.remove('active');
               });
               // Set default sub-button (e.g., 'interpolated') as active
-              var defaultSubBtn = document.getElementById(level + '_interpolated_button');
+              var defaultSubBtn = document.getElementById(level + '_train_button');
               defaultSubBtn.classList.add('active');
               // Switch to the default video
-              switchVideo(level, 'interpolated');
+              switchVideo(level, 'train');
             }
             function switchVideo(level, type) {
               // Remove 'active' class from all sub-buttons
@@ -595,12 +608,12 @@
 <hr>
 
 <!-- Videos -->
-<section class="section">
+<!-- <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered ">
       <div class="column is-full-width">
         <h2 class="title is-3 has-text-centered">Videos</h2>
-        <div class="content has-text-justified">
+        <div class="content has-text-justified"> -->
           <!-- <p>
           1. <b>Robust Global Shape Representation:</b> Visual hull and depth estimated from foundation models initiates 3D Gaussians. RGB-D images and foundation-model-estimated normals are used to supervise subsequent training.
           </p>
