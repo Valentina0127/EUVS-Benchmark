@@ -344,31 +344,31 @@
               <div class="level-group">
                 <button class="btn level-btn" id="level1_button" onclick="switchLevel('level1')">Level 1</button>
                 <div class="sub-buttons" id="level1_sub_buttons" style="display: none;">
-                  <button class="btn sub-btn" id="level1_interpolated_button" onclick="switchVideo('level1', 'interpolated')">Interpolated</button>
-                  <button class="btn sub-btn" id="level1_extrapolated_button" onclick="switchVideo('level1', 'extrapolated')">Extrapolated</button>
+                  <button class="btn sub-btn" id="level1_train_button" onclick="switchVideo('level1', 'train')">Train</button>
+                  <button class="btn sub-btn" id="level1_test_button" onclick="switchVideo('level1', 'test')">Test</button>
                 </div>
               </div>
               <!-- Level 2 -->
               <div class="level-group">
                 <button class="btn level-btn" id="level2_button" onclick="switchLevel('level2')">Level 2</button>
                 <div class="sub-buttons" id="level2_sub_buttons" style="display: none;">
-                  <button class="btn sub-btn" id="level2_interpolated_button" onclick="switchVideo('level2', 'interpolated')">Interpolated</button>
-                  <button class="btn sub-btn" id="level2_extrapolated_button" onclick="switchVideo('level2', 'extrapolated')">Extrapolated</button>
+                  <button class="btn sub-btn" id="level2_train_button" onclick="switchVideo('level2', 'train')">Train</button>
+                  <button class="btn sub-btn" id="level2_test_button" onclick="switchVideo('level2', 'test')">Test</button>
                 </div>
               </div>
               <!-- Level 3 -->
               <div class="level-group">
                 <button class="btn level-btn" id="level3_button" onclick="switchLevel('level3')">Level 3</button>
                 <div class="sub-buttons" id="level3_sub_buttons" style="display: none;">
-                  <button class="btn sub-btn" id="level3_interpolated_button" onclick="switchVideo('level3', 'interpolated')">Interpolated</button>
-                  <button class="btn sub-btn" id="level3_extrapolated_button" onclick="switchVideo('level3', 'extrapolated')">Extrapolated</button>
+                  <button class="btn sub-btn" id="level3_train_button" onclick="switchVideo('level3', 'train')">Train</button>
+                  <button class="btn sub-btn" id="level3_test_button" onclick="switchVideo('level3', 'test')">Test</button>
                 </div>
               </div>
             </div>
             <br><br>
             <!-- Video Player -->
             <video muted autoplay loop style="height: 700px; width: auto;" controls id="videoPlayer">
-              <source src="./static/videos/level1_interpolated.mp4" type="video/mp4">
+              <source src="./static/videos/level1_train.mp4" type="video/mp4">
             </video>
           </center>
           <!-- JavaScript -->
@@ -376,7 +376,7 @@
             // Initialize: Show Level 1 sub-buttons and set active states
             document.getElementById('level1_sub_buttons').style.display = 'block';
             document.getElementById('level1_button').classList.add('active');
-            document.getElementById('level1_interpolated_button').classList.add('active');
+            document.getElementById('level1_train_button').classList.add('active');
             function switchLevel(level) {
               // Hide all sub-buttons
               document.querySelectorAll('.sub-buttons').forEach(function(subButtons) {
