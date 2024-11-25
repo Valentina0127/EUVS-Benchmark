@@ -502,25 +502,7 @@
 </section>
 
 
-<hr>
 
-<!-- Results Comparison across Different Levels -->
-<section class="section">
-  <div class="container is-max-desktop">
-    <div class="columns is-centered has-text-centered">
-      <div class="column is-full-width">
-        
-        <h2 class="title is-3">Results Comparison across Different Levels</h2>
-        <div id="Dataset ">
-          <img src="./static/images/Results comparison.png" style="width: 45vw; min-width: 330px;" alt="Overview Image"> 
-          <figcaption style="text-align: left; margin-top: 10px;">
-            <strong>Qualitative and quantitative results across three difficulty levels.</strong> The results show a clear degradation in performance as the difficulty level increases, highlighting the challenge of maintaining consistency and realism in complex urban scenarios.
-          </figcaption>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
 
 
 <!-- Video Comparison -->
@@ -577,11 +559,10 @@
 
             // Level descriptions
             const levelDescriptions = {
-              level1: "Welcome to Level 1! This level focuses on fundamental comparisons in a controlled setting.",
-              level2: "Level 2 dives deeper into challenging scenarios with increased complexity.",
-              level3: "Explore Level 3 for advanced scenarios with multi-agent interactions and dynamic paths."
+              level1: "Translation-only experiment uses train and test traversal on different lanes.",
+              level2: "Rotation-only experiment uses the first three cameras and the last three cameras for training, and two side cameras for testing.",
+              level3: "Translation + rotation experiment uses train and test traversals with significantly different trajectories."
             };
-
             function switchLevel(level) {
               // Update level description
               const descriptionDiv = document.getElementById('levelDescription');
@@ -684,7 +665,25 @@
 
 
 
+<hr>
 
+<!-- Results Comparison across Different Levels -->
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-full-width">
+        
+        <h2 class="title is-3">Results Comparison across Different Levels</h2>
+        <div id="Dataset ">
+          <img src="./static/images/Results comparison.png" style="width: 45vw; min-width: 330px;" alt="Overview Image"> 
+          <figcaption style="text-align: left; margin-top: 10px;">
+            <strong>Qualitative and quantitative results across three difficulty levels.</strong> The results show a clear degradation in performance as the difficulty level increases, highlighting the challenge of maintaining consistency and realism in complex urban scenarios.
+          </figcaption>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
 
 <!-- BibTeX -->
