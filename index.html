@@ -541,6 +541,10 @@
               </div>
             </div>
             <br><br>
+            <!-- Level Descriptions -->
+            <div id="levelDescription" class="level-description has-text-centered">
+              <p>Welcome to Level 1! This level focuses on fundamental comparisons in a controlled setting.</p>
+            </div>
             <!-- Video Player -->
             <video muted autoplay loop style="height: 1200px; width: auto;" controls id="videoPlayer">
               <source src="./static/videos/level1_train.mp4" type="video/mp4">
@@ -552,7 +556,19 @@
             document.getElementById('level1_sub_buttons').style.display = 'block';
             document.getElementById('level1_button').classList.add('active');
             document.getElementById('level1_train_button').classList.add('active');
+
+            // Level descriptions
+            const levelDescriptions = {
+              level1: "Welcome to Level 1! This level focuses on fundamental comparisons in a controlled setting.",
+              level2: "Level 2 dives deeper into challenging scenarios with increased complexity.",
+              level3: "Explore Level 3 for advanced scenarios with multi-agent interactions and dynamic paths."
+            };
+
             function switchLevel(level) {
+              // Update level description
+              const descriptionDiv = document.getElementById('levelDescription');
+              descriptionDiv.innerHTML = `<p>${levelDescriptions[level]}</p>`;
+
               // Hide all sub-buttons
               document.querySelectorAll('.sub-buttons').forEach(function(subButtons) {
                 subButtons.style.display = 'none';
@@ -565,16 +581,17 @@
               document.getElementById(level + '_button').classList.add('active');
               // Show sub-buttons for the selected level
               document.getElementById(level + '_sub_buttons').style.display = 'block';
-              // Optionally, reset sub-button active states
+              // Reset sub-button active states
               document.querySelectorAll('.sub-btn').forEach(function(btn) {
                 btn.classList.remove('active');
               });
-              // Set default sub-button (e.g., 'interpolated') as active
+              // Set default sub-button as active
               var defaultSubBtn = document.getElementById(level + '_train_button');
               defaultSubBtn.classList.add('active');
               // Switch to the default video
               switchVideo(level, 'train');
             }
+
             function switchVideo(level, type) {
               // Remove 'active' class from all sub-buttons
               document.querySelectorAll('.sub-btn').forEach(function(btn) {
@@ -610,11 +627,17 @@
               margin-top: 5px;
               width: 100px;
             }
+            .level-description {
+              margin-bottom: 15px;
+              font-size: 1.2em;
+            }
           </style>
         </div>
       </div>
     </div>
   </div>
+</section>
+
 
 <!-- <hr> -->
 
