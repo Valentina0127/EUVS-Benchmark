@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1 align="center">Extrapolated Urban View Synthesis</h1>
+  <h1 align="center">Extrapolated Urban View Synthesis Benchmark</h1>
 
 ### [Project Page](https://ai4ce.github.io/EUVS-Benchmark/) | [Data](https://huggingface.co/datasets/ai4ce/EUVS-Benchmark)
 <!-- | [Paper](https://arxiv.org/abs/2402.14650) -->
